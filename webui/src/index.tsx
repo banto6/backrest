@@ -1,13 +1,14 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
-import { App } from "./views/App";
-import { AlertContextProvider } from "./components/Alerts";
-import { ModalContextProvider } from "./components/ModalManager";
+import {createRoot} from "react-dom/client";
+import {App} from "./views/App";
+import {AlertContextProvider} from "./components/Alerts";
+import {ModalContextProvider} from "./components/ModalManager";
 
 import "react-js-cron/dist/styles.css";
-import { ConfigProvider as AntdConfigProvider, theme } from "antd";
-import { ConfigContextProvider } from "./components/ConfigProvider";
-import { HashRouter } from "react-router-dom";
+import {ConfigProvider as AntdConfigProvider, theme} from "antd";
+import {ConfigContextProvider} from "./components/ConfigProvider";
+import {HashRouter} from "react-router-dom";
+import './i18n';
 
 const Root = ({ children }: { children: React.ReactNode }) => {
   return (

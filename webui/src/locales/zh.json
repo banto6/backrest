@@ -1,0 +1,26 @@
+{
+  "common": {
+    "button": {
+      "cancel": "取消",
+      "submit": "提交"
+    }
+  },
+  "setting": {
+    "title": "设置",
+    "tooltip": {
+      "instance_id": "实例名称将用于标识此backrest安装。请谨慎填写，因为它以后不能更改。"
+    },
+    "form": {
+      "instance_id": "实例ID",
+      "disable_authentication": "禁用认证",
+      "users": "用户",
+      "preview": "预览"
+    },
+    "placeholder": {
+      "instance_id": "此实例的唯一实例ID (例如: my-backrest-server)"
+    },
+    "button": {
+      "add_user": "添加用户"
+    }
+  }
+}

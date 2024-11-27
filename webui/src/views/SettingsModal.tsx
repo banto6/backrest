@@ -22,6 +22,7 @@ import { formatErrorAlert, useAlertApi } from "../components/Alerts";
 import { namePattern, validateForm } from "../lib/formutil";
 import { useConfig } from "../components/ConfigProvider";
 import { authenticationService, backrestService } from "../api";
+import {useTranslation} from "react-i18next";
 
 interface FormData {
   auth: {
@@ -39,6 +40,7 @@ export const SettingsModal = () => {
   const showModal = useShowModal();
   const alertsApi = useAlertApi()!;
   const [form] = Form.useForm<FormData>();
+  const { t } = useTranslation();
 
   if (!config) {
     return null;
@@ -96,14 +98,14 @@ export const SettingsModal = () => {
       <Modal
         open={true}
         onCancel={handleCancel}
-        title={"Settings"}
+        title={t('setting.title')}
         width="40vw"
         footer={[
           <Button key="back" onClick={handleCancel}>
-            Cancel
+            {t('common.button.cancel')}
           </Button>,
           <Button key="submit" type="primary" onClick={handleOk}>
-            Submit
+            {t('common.button.submit')}
           </Button>,
         ]}
       >
@@ -127,11 +129,11 @@ export const SettingsModal = () => {
               </p>
             </>
           )}
-          <Tooltip title="The instance name will be used to identify this backrest install. Pick a value carefully as it cannot be changed later.">
+          <Tooltip title={t('setting.tooltip.instance_id')}>
             <Form.Item
               hasFeedback
               name="instance"
-              label="Instance ID"
+              label={t('setting.form.instance_id')}
               required
               initialValue={config.instance || ""}
               rules={[
@@ -145,21 +147,21 @@ export const SettingsModal = () => {
             >
               <Input
                 placeholder={
-                  "Unique instance ID for this instance (e.g. my-backrest-server)"
+                  t('setting.placeholder.instance_id')
                 }
                 disabled={!!config.instance}
               />
             </Form.Item>
           </Tooltip>
           <Form.Item
-            label="Disable Authentication"
+            label={t('setting.form.disable_authentication')}
             name={["auth", "disabled"]}
             valuePropName="checked"
             initialValue={config.auth?.disabled || false}
           >
             <Checkbox />
           </Form.Item>
-          <Form.Item label="Users" required={true}>
+          <Form.Item label={t('setting.form.users')} required={true}>
             <Form.List
               name={["auth", "users"]}
               initialValue={config.auth?.users?.map(protoToObj) || []}
@@ -227,7 +229,7 @@ export const SettingsModal = () => {
                       }}
                       block
                     >
-                      <PlusOutlined /> Add user
+                      <PlusOutlined /> {t('setting.button.add_user')}
                     </Button>
                   </Form.Item>
                 </>
@@ -235,7 +237,7 @@ export const SettingsModal = () => {
             </Form.List>
           </Form.Item>
 
-          <Form.Item shouldUpdate label="Preview">
+          <Form.Item shouldUpdate label={t('setting.form.preview')}>
             {() => (
               <Collapse
                 size="small"

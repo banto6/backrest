@@ -1,0 +1,26 @@
+{
+  "common": {
+    "button": {
+      "cancel": "Cancel",
+      "submit": "Submit"
+    }
+  },
+  "setting": {
+    "title": "Settings",
+    "tooltip": {
+      "instance_id": "The instance name will be used to identify this backrest install. Pick a value carefully as it cannot be changed later."
+    },
+    "form": {
+      "instance_id": "Instance ID",
+      "disable_authentication": "Disable Authentication",
+      "users": "Users",
+      "preview": "Preview"
+    },
+    "placeholder": {
+      "instance_id": "Unique instance ID for this instance (e.g. my-backrest-server)"
+    },
+    "button": {
+      "add_user": "Add user"
+    }
+  }
+}
